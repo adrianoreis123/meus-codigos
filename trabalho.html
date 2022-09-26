@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="estilo.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <table class="tab">
+        <caption>Dados Pessoais</caption>
+        <!-- <thead>
+            <tr>
+                <th>Cabeçalho 1</th>
+                <th>Cabeçalho 2</th>
+            </tr>
+        </thead> -->
+        <tbody>
+            <tr>
+                <td>Nome</td>
+                <td id="name">
+                    <div class="fa-3x">
+                        <i class="fas fa-spinner fa-pulse"></i>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Sexo</td>
+                <td id="gender"></td>
+            </tr>
+            <tr>
+                <td>Idade</td>
+                <td id="age"></td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="tab">
+        <caption>Endereçamento</caption>
+        <tbody>
+            <td>Endereço</td>
+            <td id="street">
+                <div class="fa-3x">
+                    <i class="fas fa-cog fa-spin"></i>
+                </div>
+            </td>
+            </tr>
+            <tr>
+                <td>Cidade</td>
+                <td id="city"></td>
+            </tr>
+            <tr>
+                <td>Estado</td>
+                <td id="state"></td>
+            </tr>
+            <tr>
+                <td>País</td>
+                <td id="country"></td>
+            </tr>
+            <tr>
+                <td>Código Postal</td>
+                <td id="postcode"></td>
+            </tr>
+            <tr>
+                <td>Fuso Horário</td>
+                <td id="timezone"></td>
+            </tr>
+
+        </tbody>
+
+    </table>
+    <script>
+        const url = 'https://randomuser.me/api/';
+        const run = fetch(url)
+        fetch(url, {
+            method: 'get' // opcional
+        })
+
+        // .then(function(response) {
+        //     response.json()
+        //     .then(function(result) {
+        //     console.log(result);
+        //     var nome = result.results[0].name.first;
+        //     var sobrenome = result.results[0].name.last;
+        //     var rua = result.results[0].location.street.name;
+        //     var num_casa = result.results[0].location.street.number;
+        //     var cidade = result.results.[0].location.city;
+        //     document.querySelector('#name').innerHTML= `${nome} ${sobrenome}`
+        //     document.querySelector('#street').innerHTML= `${rua}, ${num_casa}`
+        //     document.querySelector('#city').innerHTML= `${cidade}`
+        //     })
+        // })
+        // 
+
+        function ler_dados() {
+            var local = JSON.parse(localStorage.getItem('chave')).results[0];
+            console.log(local.location.country)
+            if (local.location.country == 'Brazil') {
+                console.log('Brazil')
+                var nome = local.name.first;
+                var sexo = local.gender;
+                var idade = local.dob.age;
+                var sobrenome = local.name.last;
+                var rua = local.location.street.name;
+                var num_casa = local.location.street.number;
+                var cidade = local.location.city;
+                var estado = local.location.state;
+                var país = local.location.country;
+                var cep = local.location.postcode;
+                var fuso = local.location.timezone.offset;
+                var descr = local.location.timezone.description;
+                if (sexo == 'male') {
+                    sexo = 'Masculino'
+                } else {
+                    sexo = 'Feminino'
+                }
+                document.querySelector('#name').innerHTML = `${nome} ${sobrenome}`
+                document.querySelector('#gender').innerHTML = `${sexo}`
+                document.querySelector('#age').innerHTML = `${idade} anos`
+                document.querySelector('#street').innerHTML = `${rua}, Nº ${num_casa}`
+                document.querySelector('#city').innerHTML = `${cidade}`
+                document.querySelector('#state').innerHTML = `${estado}`
+                document.querySelector('#country').innerHTML = `${país}`
+                document.querySelector('#postcode').innerHTML = `${cep}`
+                document.querySelector('#timezone').innerHTML = `${fuso} &nbsp; ${descr}`
+                clearInterval(execute)
+            } else {
+                console.log('Não é o Brasil')
+            }
+        }
+
+        function consultar() {
+            fetch(url, {
+                method: 'get' // opcional
+            })
+                .then(function (response) {
+                    response.json()
+                        .then(function (result) {
+                            localStorage.setItem('chave', JSON.stringify(result))
+                        })
+                })
+                .catch(function (err) {
+                    console.error(err);
+                });
+        }
+        var execute = setInterval(() => {
+            consultar();
+            ler_dados();
+        }, 1000)
+    </script>
+</body>
+
+</html>

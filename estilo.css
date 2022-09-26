@@ -1,0 +1,23 @@
+.tab {
+    border-collapse: colapso;
+    margin-top: 10px;
+    padding: 5px;
+    margin-left: 120px;
+    border-collapse: collapse;
+    text-align: center;
+    width: 70%;
+}
+
+.tab caption {
+    border: 1px solid black;
+    padding: 8px;
+    background: rgba(149, 174, 103, 0.689);
+    color: rgb(10, 10, 142);
+}
+
+.tab td {
+    border: 1px solid black;
+    padding: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
