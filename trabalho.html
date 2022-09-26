@@ -22,8 +22,9 @@
         </thead> -->
         <tbody>
             <tr>
+                <td></td>
                 <td id="foto_1"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
-                <td><img id="foto_2" src=""></td>
+                <!-- <td><img id="foto_2" src=""></td> -->
             </tr>
             <tr>
                 <td>Nome</td>
@@ -63,6 +64,11 @@
             <td id="street">
                 <i class="fas fa-cog fa-spin fa-1x"></i>
             </td>
+            </tr>
+            <!-- <td>images</td>
+            <td id="imagess">
+                <i class="fas fa-cog fa-spin fa-1x"></i>
+            </td> -->
             </tr>
             <tr>
                 <td>Cidade</td>
@@ -114,41 +120,58 @@
         function ler_dados() {
             var local = JSON.parse(localStorage.getItem('chave')).results[0];
             console.log(local.location.country)
-            // if (local.location.country == 'Brazil' || local.location.country == 'Canada') {
-                console.log('Brazil')
-                var foto = local.picture.large;
-                var nome = local.name.first;
-                var sexo = local.gender;
-                var idade = local.dob.age;
-                var sobrenome = local.name.last;
-                var fone = local.phone;
-                var rua = local.location.street.name;
-                var num_casa = local.location.street.number;
-                var cidade = local.location.city;
-                var estado = local.location.state;
-                var país = local.location.country;
-                var cep = local.location.postcode;
-                var fuso = local.location.timezone.offset;
-                var descr = local.location.timezone.description;
-                
+            if (local.location.country == 'Brazil' || local.location.country == 'Canada') {
+            console.log('Brazil')
+            var foto = local.picture.medium;
+            var nome = local.name.first;
+            var sexo = local.gender;
+            var idade = local.dob.age;
+            var sobrenome = local.name.last;
+            var fone = local.phone;
+            var rua = local.location.street.name;
+            var num_casa = local.location.street.number;
+            var cidade = local.location.city;
+            var estado = local.location.state;
+            var país = local.location.country;
+            var cep = local.location.postcode;
+            var fuso = local.location.timezone.offset;
+            var descr = local.location.timezone.description;
+            var injetarImg = document.querySelector("#foto_1");
+            injetarImg.innerHTML = "";
+            Object.entries(local.picture).forEach(function(item, index){
+                console.log(item[1]);
+                var imgs = document.createElement("IMG");
+                imgs.src = item[1];
+                injetarImg.appendChild(imgs);
+            })
+
+                // var injectImg = document.querySelector("#imagess");
+                // Object.entries(local.picture).forEach(function(item, index){
+                //     // console.log(item, index)
+                //     console.log(item[1]);
+                //     var imss = document.createElement("IMG");
+                //     imss.src = item[1];
+                //     imss.id = item[0];
+                //     injectImg.appendChild(imss);
+                // })
                 sexo = (sexo == 'male') ? 'Masculino' : 'Feminino'
-                // console.log("PHOTO: ", foto);
-                // document.querySelector('#foto_2').src = foto;
-                document.querySelector('#foto_2').setAttribute('src', foto);
-                document.querySelector('#foto_1').innerHTML = `<img src="${foto}">`
-                document.querySelector('#name').innerHTML = `${nome} ${sobrenome}`
-                document.querySelector('#gender').innerHTML = `${sexo}`
-                document.querySelector('#age').innerHTML = `${idade} anos`
-                document.querySelector('#street').innerHTML = `${rua}, Nº ${num_casa}`
-                document.querySelector('#city').innerHTML = `${cidade}`
-                document.querySelector('#state').innerHTML = `${estado}`
-                document.querySelector('#country').innerHTML = `${país}`
-                document.querySelector('#postcode').innerHTML = `${cep}`
-                document.querySelector('#timezone').innerHTML = `${fuso} &nbsp; ${descr}`
-                clearInterval(execute)
-            // } else {
-            //     console.log('Não é o Brasil')
-            // }
+            // console.log("PHOTO: ", foto);
+            // document.querySelector('#foto_2').src = foto;
+            // document.querySelector('#foto_2').setAttribute('src', foto);
+            // document.querySelector('#foto_1').innerHTML = `<img src="${foto}">`
+            document.querySelector('#name').innerHTML = `${nome} ${sobrenome}`
+            document.querySelector('#gender').innerHTML = `${sexo}`
+            document.querySelector('#age').innerHTML = `${idade} anos`
+            document.querySelector('#street').innerHTML = `${rua}, Nº ${num_casa}`
+            document.querySelector('#city').innerHTML = `${cidade}`
+            document.querySelector('#state').innerHTML = `${estado}`
+            document.querySelector('#country').innerHTML = `${país}`
+            document.querySelector('#postcode').innerHTML = `${cep}`
+            document.querySelector('#timezone').innerHTML = `${fuso} &nbsp; ${descr}`
+            clearInterval(execute)
+            } else {
+                console.log('Não é o Brasil')
+            }
         }
 
         function consultar() {
