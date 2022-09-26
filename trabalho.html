@@ -22,6 +22,10 @@
         </thead> -->
         <tbody>
             <tr>
+                <td id="foto_1"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
+                <td><img id="foto_2" src=""></td>
+            </tr>
+            <tr>
                 <td>Nome</td>
                 <td id="name">
                     <div class="fa-3x">
@@ -31,43 +35,54 @@
             </tr>
             <tr>
                 <td>Sexo</td>
-                <td id="gender"></td>
+                <td id="gender"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
             </tr>
             <tr>
                 <td>Idade</td>
-                <td id="age"></td>
+                <td id="age"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
             </tr>
         </tbody>
+    </table>
+    <table class="tab">
+        <caption>Contatos</caption>
+        <tbody>
+            <tr teste>
+                <td>Fone</td>
+                <td id="phone"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td id="email"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
+            </tr>
+
     </table>
     <table class="tab">
         <caption>Endereçamento</caption>
         <tbody>
             <td>Endereço</td>
             <td id="street">
-                <div class="fa-3x">
-                    <i class="fas fa-cog fa-spin"></i>
-                </div>
+                <i class="fas fa-cog fa-spin fa-1x"></i>
             </td>
             </tr>
             <tr>
                 <td>Cidade</td>
-                <td id="city"></td>
+                <td id="city"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
             </tr>
             <tr>
                 <td>Estado</td>
-                <td id="state"></td>
+                <td id="state"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
             </tr>
             <tr>
                 <td>País</td>
-                <td id="country"></td>
+                <td id="country"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
             </tr>
             <tr>
                 <td>Código Postal</td>
-                <td id="postcode"></td>
+                <td id="postcode"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
             </tr>
             <tr>
                 <td>Fuso Horário</td>
-                <td id="timezone"></td>
+                <td id="timezone"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
             </tr>
 
         </tbody>
@@ -99,12 +114,14 @@
         function ler_dados() {
             var local = JSON.parse(localStorage.getItem('chave')).results[0];
             console.log(local.location.country)
-            if (local.location.country == 'Brazil') {
+            // if (local.location.country == 'Brazil' || local.location.country == 'Canada') {
                 console.log('Brazil')
+                var foto = local.picture.large;
                 var nome = local.name.first;
                 var sexo = local.gender;
                 var idade = local.dob.age;
                 var sobrenome = local.name.last;
+                var fone = local.phone;
                 var rua = local.location.street.name;
                 var num_casa = local.location.street.number;
                 var cidade = local.location.city;
@@ -113,11 +130,12 @@
                 var cep = local.location.postcode;
                 var fuso = local.location.timezone.offset;
                 var descr = local.location.timezone.description;
-                if (sexo == 'male') {
-                    sexo = 'Masculino'
-                } else {
-                    sexo = 'Feminino'
-                }
+                
+                sexo = (sexo == 'male') ? 'Masculino' : 'Feminino'
+                // console.log("PHOTO: ", foto);
+                // document.querySelector('#foto_2').src = foto;
+                document.querySelector('#foto_2').setAttribute('src', foto);
+                document.querySelector('#foto_1').innerHTML = `<img src="${foto}">`
                 document.querySelector('#name').innerHTML = `${nome} ${sobrenome}`
                 document.querySelector('#gender').innerHTML = `${sexo}`
                 document.querySelector('#age').innerHTML = `${idade} anos`
@@ -128,9 +146,9 @@
                 document.querySelector('#postcode').innerHTML = `${cep}`
                 document.querySelector('#timezone').innerHTML = `${fuso} &nbsp; ${descr}`
                 clearInterval(execute)
-            } else {
-                console.log('Não é o Brasil')
-            }
+            // } else {
+            //     console.log('Não é o Brasil')
+            // }
         }
 
         function consultar() {
