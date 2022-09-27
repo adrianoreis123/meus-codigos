@@ -12,88 +12,99 @@
 </head>
 
 <body>
-    <table class="tab">
-        <caption>Dados Pessoais</caption>
-        <!-- <thead>
-            <tr>
-                <th>Cabeçalho 1</th>
-                <th>Cabeçalho 2</th>
-            </tr>
-        </thead> -->
-        <tbody>
-            <tr>
-                <td></td>
-                <td id="foto_1"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
-                <!-- <td><img id="foto_2" src=""></td> -->
-            </tr>
-            <tr>
-                <td>Nome</td>
-                <td id="name">
-                    <div class="fa-3x">
-                        <i class="fas fa-spinner fa-pulse"></i>
-                    </div>
+    <div id="element-to-print">
+        <table class="tab">
+            <caption>Dados Pessoais</caption>
+            <!-- <thead>
+                <tr>
+                    <th>Cabeçalho 1</th>
+                    <th>Cabeçalho 2</th>
+                </tr>
+            </thead> -->
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td id="foto_1"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
+                    <!-- <td><img id="foto_2" src=""></td> -->
+                </tr>
+                <tr>
+                    <td>Nome</td>
+                    <td id="name">
+                        <div class="fa-1x">
+                            <i class="fas fa-spinner fa-pulse"></i>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sexo</td>
+                    <td id="gender"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
+                </tr>
+                <tr>
+                    <td>Idade</td>
+                    <td id="age"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="tab">
+            <caption>Contatos</caption>
+            <tbody>
+                <tr>
+                    <td>Fone</td>
+                    <td id="phone"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
+                </tr>
+                <tr>
+                    <td>Celular</td>
+                    <td id="cell"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td id="email"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
+                </tr>
+
+        </table>
+        <table class="tab">
+            <caption>Endereçamento</caption>
+            <tbody>
+                <td>Endereço</td>
+                <td id="street">
+                    <i class="fas fa-cog fa-spin fa-1x"></i>
                 </td>
-            </tr>
-            <tr>
-                <td>Sexo</td>
-                <td id="gender"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
-            </tr>
-            <tr>
-                <td>Idade</td>
-                <td id="age"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="tab">
-        <caption>Contatos</caption>
-        <tbody>
-            <tr teste>
-                <td>Fone</td>
-                <td id="phone"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
-            </tr>
-            <tr>
-                <td>Email</td>
-                <td id="email"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
-            </tr>
+                </tr>
+                <!-- <td>images</td>
+                <td id="imagess">
+                    <i class="fas fa-cog fa-spin fa-1x"></i>
+                </td> -->
+                </tr>
+                <tr>
+                    <td>Cidade</td>
+                    <td id="city"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
+                </tr>
+                <tr>
+                    <td>Estado</td>
+                    <td id="state"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
+                </tr>
+                <tr>
+                    <td>País</td>
+                    <td id="country"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
+                </tr>
+                <tr>
+                    <td>Código Postal</td>
+                    <td id="postcode"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
+                </tr>
+                <tr>
+                    <td>Fuso Horário</td>
+                    <td id="timezone"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
+                </tr>
 
-    </table>
-    <table class="tab">
-        <caption>Endereçamento</caption>
-        <tbody>
-            <td>Endereço</td>
-            <td id="street">
-                <i class="fas fa-cog fa-spin fa-1x"></i>
-            </td>
-            </tr>
-            <!-- <td>images</td>
-            <td id="imagess">
-                <i class="fas fa-cog fa-spin fa-1x"></i>
-            </td> -->
-            </tr>
-            <tr>
-                <td>Cidade</td>
-                <td id="city"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
-            </tr>
-            <tr>
-                <td>Estado</td>
-                <td id="state"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
-            </tr>
-            <tr>
-                <td>País</td>
-                <td id="country"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
-            </tr>
-            <tr>
-                <td>Código Postal</td>
-                <td id="postcode"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
-            </tr>
-            <tr>
-                <td>Fuso Horário</td>
-                <td id="timezone"><i class="fas fa-pulse fa-spinner fa-1x"></i></td>
-            </tr>
+            </tbody>
 
-        </tbody>
+        </table>
+    </div>
+    
+    <button id="buttonBaixar" type="button">Baixar</button>
 
-    </table>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script>
         const url = 'https://randomuser.me/api/';
         const run = fetch(url)
@@ -120,30 +131,32 @@
         function ler_dados() {
             var local = JSON.parse(localStorage.getItem('chave')).results[0];
             console.log(local.location.country)
-            if (local.location.country == 'Brazil' || local.location.country == 'Canada') {
-            console.log('Brazil')
-            var foto = local.picture.medium;
-            var nome = local.name.first;
-            var sexo = local.gender;
-            var idade = local.dob.age;
-            var sobrenome = local.name.last;
-            var fone = local.phone;
-            var rua = local.location.street.name;
-            var num_casa = local.location.street.number;
-            var cidade = local.location.city;
-            var estado = local.location.state;
-            var país = local.location.country;
-            var cep = local.location.postcode;
-            var fuso = local.location.timezone.offset;
-            var descr = local.location.timezone.description;
-            var injetarImg = document.querySelector("#foto_1");
-            injetarImg.innerHTML = "";
-            Object.entries(local.picture).forEach(function(item, index){
-                console.log(item[1]);
-                var imgs = document.createElement("IMG");
-                imgs.src = item[1];
-                injetarImg.appendChild(imgs);
-            })
+            // if (local.location.country == 'Brazil' || local.location.country == 'Canada') {
+                console.log('Brazil')
+                var foto = local.picture.medium;
+                var nome = local.name.first;
+                var sexo = local.gender;
+                var idade = local.dob.age;
+                var sobrenome = local.name.last;
+                var fone = local.phone;
+                var celular = local.cell
+                var email = local.email;
+                var rua = local.location.street.name;
+                var num_casa = local.location.street.number;
+                var cidade = local.location.city;
+                var estado = local.location.state;
+                var país = local.location.country;
+                var cep = local.location.postcode;
+                var fuso = local.location.timezone.offset;
+                var descr = local.location.timezone.description;
+                var injetarImg = document.querySelector("#foto_1");
+                injetarImg.innerHTML = "";
+                Object.entries(local.picture).forEach(function (item, index) {
+                    console.log(item[1]);
+                    var imgs = document.createElement("IMG");
+                    imgs.src = item[1];
+                    injetarImg.appendChild(imgs);
+                })
 
                 // var injectImg = document.querySelector("#imagess");
                 // Object.entries(local.picture).forEach(function(item, index){
@@ -155,23 +168,26 @@
                 //     injectImg.appendChild(imss);
                 // })
                 sexo = (sexo == 'male') ? 'Masculino' : 'Feminino'
-            // console.log("PHOTO: ", foto);
-            // document.querySelector('#foto_2').src = foto;
-            // document.querySelector('#foto_2').setAttribute('src', foto);
-            // document.querySelector('#foto_1').innerHTML = `<img src="${foto}">`
-            document.querySelector('#name').innerHTML = `${nome} ${sobrenome}`
-            document.querySelector('#gender').innerHTML = `${sexo}`
-            document.querySelector('#age').innerHTML = `${idade} anos`
-            document.querySelector('#street').innerHTML = `${rua}, Nº ${num_casa}`
-            document.querySelector('#city').innerHTML = `${cidade}`
-            document.querySelector('#state').innerHTML = `${estado}`
-            document.querySelector('#country').innerHTML = `${país}`
-            document.querySelector('#postcode').innerHTML = `${cep}`
-            document.querySelector('#timezone').innerHTML = `${fuso} &nbsp; ${descr}`
-            clearInterval(execute)
-            } else {
-                console.log('Não é o Brasil')
-            }
+                // console.log("PHOTO: ", foto);
+                // document.querySelector('#foto_2').src = foto;
+                // document.querySelector('#foto_2').setAttribute('src', foto);
+                // document.querySelector('#foto_1').innerHTML = `<img src="${foto}">`
+                document.querySelector('#name').innerHTML = `${nome} ${sobrenome}`
+                document.querySelector('#gender').innerHTML = `${sexo}`
+                document.querySelector('#age').innerHTML = `${idade} anos`
+                document.querySelector('#phone').innerHTML = `${fone}`
+                document.querySelector('#cell').innerHTML = `${celular}`
+                document.querySelector('#email').innerHTML = `${email}`
+                document.querySelector('#street').innerHTML = `${rua}, Nº ${num_casa}`
+                document.querySelector('#city').innerHTML = `${cidade}`
+                document.querySelector('#state').innerHTML = `${estado}`
+                document.querySelector('#country').innerHTML = `${país}`
+                document.querySelector('#postcode').innerHTML = `${cep}`
+                document.querySelector('#timezone').innerHTML = `${fuso} &nbsp; ${descr}`
+                clearInterval(execute)
+            // } else {
+            //     console.log('Não é o Brasil')
+            // }
         }
 
         function consultar() {
@@ -192,6 +208,15 @@
             consultar();
             ler_dados();
         }, 1000)
+        var botaoBaixar = document.querySelector('#buttonBaixar');
+        botaoBaixar.addEventListener('click', () => {
+            var element = document.getElementById('element-to-print');
+            html2pdf(element);
+        });
+        // document.addEventListener('click', (e)=>{
+        //     console.log(e.target.classList);
+        // });
+        
     </script>
 </body>
 
